@@ -1,18 +1,31 @@
 import React from 'react';
+import { Draggable } from 'react-beautiful-dnd';
 import './style.scss';
 
 const TaskCard = (props) => {
 
   // Props
-  const { text, id } = props;
+  const { text, id, index } = props;
   
   return (
-    <li 
-      className="task-card"
-      key={id}
-    >
-      {`${text}`}
-    </li>
+   <Draggable 
+    draggableId={String(id)} 
+    index={index}
+  >
+    {
+      provided => (
+        <li
+          {...provided.draggableProps}
+          {...provided.dragHandleProps}
+          ref={provided.innerRef}
+          className="task-card"
+          key={id}
+        >
+          {`${text}`}
+        </li>
+      )
+    }
+   </Draggable> 
   );
 }
 

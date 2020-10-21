@@ -12,7 +12,7 @@ A Trello clone and task management app built to practice React-Redux and learn R
 
 ### MVP
 
-- Use redux for state-management
+- Use Redux for state-management
 - Allow user to use drag and drop to move cards and lists
 - User can create/delete existing lists and cards
 - Use only React functional components and React Hooks
