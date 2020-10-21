@@ -31,19 +31,25 @@ const ButtonForm = (props) => {
   }
 
   // Add List
-  const handleAddList = () => {
+  const handleAddList = (e) => {
+    e.preventDefault()
+
     if (text) {
       dispatch(addList(text))
       setText('')
+      setOpenForm(false)
     }
     return
   }
 
   // Add Card
-  const handleAddCard = () => {
+  const handleAddCard = (e) => {
+    e.preventDefault()
+
     if (text) {
       dispatch(addCard(listID, text))
       setText('')
+      setOpenForm(false)
     }
     return
   }
@@ -79,20 +85,20 @@ const ButtonForm = (props) => {
       <>
         <form 
           className={list ? 'add-list-form' : 'add-card-form'}
+          onSubmit={list ? handleAddList : handleAddCard}
         >
           <textarea
             className={list ? 'task-list add-list-input' :'task-card add-card-input'}
             placeholder={placeholder}
             value={text}
-            onBlur={() => close()}
             onChange={handleInputChange}
             autoFocus
           />
           <div className="form-button-container">
             <button
+              type='submit'
               className={list ? 'add-list-input-button' : 'add-card-input-button'}
               title={title}
-              onMouseDown={list ? handleAddList : handleAddCard}
             >
               {title}
             </button>
