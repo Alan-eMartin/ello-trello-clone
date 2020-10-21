@@ -1,0 +1,20 @@
+.task-list-container {
+  display: flex;
+  height: 100%;
+  flex-direction: column;
+  min-width: 300px;
+  padding: 1rem;
+  margin: 1rem 0.6rem;
+  background-color: #ebecf0;
+  border: 0.05rem solid #bbbbbb;
+  border-radius: 0.5rem;
+}
+
+.task-list-title {
+  font-size: 2rem;
+  font-family: 'Open-Sans', sans-serif;
+  color: #262626;
+  font-weight: 600;
+  margin: 1rem 0;
+  padding-left: 1rem;
+}

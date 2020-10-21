@@ -1,0 +1,103 @@
+// Button Styles
+button {
+  padding: none;
+  font-size: 1.5rem;
+  padding: 1rem;
+  transition: all 0.2s;
+  border: none;
+  background-color: transparent;
+
+  &:hover {
+    cursor: pointer;
+  }
+}
+
+.add-card-button,
+.add-list-button {
+  width: 100%;
+  border-radius: 0.5rem;
+  transition: all 0.05s ease-in;
+  text-align: left;
+  transition: all 0.2s;
+}
+
+.add-card-button {
+  span {
+    opacity: 0.7;
+
+    &:focus,
+    &:hover {
+      opacity: 1;
+      cursor: pointer;
+    }
+  }
+
+  &:focus,
+  &:hover {
+    background-color: #d9dce2;
+  }
+}
+
+.add-list-button {
+  margin-top: 1rem;
+  background-color: #ebecf080;
+  width: 300px;
+  height: 100%;
+
+  &:focus,
+  &:hover {
+    background-color: #ebecf095;
+  }
+
+  span {
+    color: #fff;
+  }
+}
+
+// Form Styles
+
+.add-card-input-button,
+.add-list-input-button {
+  background-color: #5aac44;
+  color: #fff;
+  border: 0.05rem solid #bbbbbb;
+  border-radius: 0.5rem;
+
+  &:focus,
+  &:hover {
+    background-color: lighten(#5aac44, 10%);
+  }
+}
+
+.form-button-container {
+  display: flex;
+}
+
+.close-form-button {
+  color: lighten(#000, 30%);
+
+  &:focus,
+  &:hover {
+    color: #000;
+  }
+}
+
+.add-list-form {
+  margin-top: 1rem;
+  height: 100%;
+  background-color: #ffffffdc;
+  padding: 1rem;
+}
+
+.add-list-form,
+.add-list-input {
+  border-radius: 0.5rem;
+}
+
+.add-list-input {
+  width: 100%;
+  min-width: 300px;
+  margin-bottom: 1rem;
+  padding: 1rem;
+  border: 0.2rem solid #0079bf;
+}
