@@ -18,7 +18,7 @@ A Trello clone and task management app built to practice React-Redux and learn R
 
 ### Future Goals
 - Integrate new Redux Hooks
-- Integrate monngoDB, and express and create my first MERN Stack project
+- Integrate monngoDB, Node and express and create my first MERN Stack project
 - Integrate TypeScript/ and or type-checking features like propTypes and defaultProps
 - Integrate unit testing with jest/and or react-testing-library
 - User can pick from a list of colours to customize their trello-clone board
