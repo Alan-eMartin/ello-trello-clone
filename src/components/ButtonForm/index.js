@@ -1,15 +1,18 @@
 import React, {useState, useEffect } from 'react';
 import AddIcon from '@material-ui/icons/Add';
 import CloseIcon from '@material-ui/icons/Close';
+import { connect } from 'react-redux';
+import { addList, addCard } from '../../actions'
 import './style.scss';
 
 const ButtonForm = (props) => {
+
   // State
   const [openForm, setOpenForm] = useState(false)
   const [text, setText] = useState('')
 
   // Props
-  const { list } = props;
+  const { list, dispatch, listID } = props;
 
   // Open
   const open = () => {
@@ -19,6 +22,7 @@ const ButtonForm = (props) => {
   // Close
   const close = () => {
     setOpenForm(false)
+    setText('')
   }
 
   // Handle Textfield Change
@@ -26,9 +30,22 @@ const ButtonForm = (props) => {
     setText(e.target.value)
   }
 
-  // Handle Textfield Submit
-  const handleSubmit = (e) => {
-    e.preventDefault()
+  // Add List
+  const handleAddList = () => {
+    if (text) {
+      dispatch(addList(text))
+      setText('')
+    }
+    return
+  }
+
+  // Add Card
+  const handleAddCard = () => {
+    if (text) {
+      dispatch(addCard(listID, text))
+      setText('')
+    }
+    return
   }
 
   // Conditional Button
@@ -64,7 +81,7 @@ const ButtonForm = (props) => {
           className={list ? 'add-list-form' : 'add-card-form'}
         >
           <textarea
-            className={list ? 'task-list add-list-input' :'add-card-input'}
+            className={list ? 'task-list add-list-input' :'task-card add-card-input'}
             placeholder={placeholder}
             value={text}
             onBlur={() => close()}
@@ -75,7 +92,7 @@ const ButtonForm = (props) => {
             <button
               className={list ? 'add-list-input-button' : 'add-card-input-button'}
               title={title}
-              onSubmit={() => handleSubmit()}
+              onMouseDown={list ? handleAddList : handleAddCard}
             >
               {title}
             </button>
@@ -95,4 +112,4 @@ const ButtonForm = (props) => {
   return  openForm ? renderForm() : renderButton()
 }
 
-export default ButtonForm;
+export default connect() (ButtonForm);

@@ -5,13 +5,13 @@ const TaskCard = (props) => {
 
   // Props
   const { text, id } = props;
-
+  
   return (
     <li 
       className="task-card"
       key={id}
     >
-      {text}
+      {`${text}`}
     </li>
   );
 }

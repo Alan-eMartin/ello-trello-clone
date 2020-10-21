@@ -19,6 +19,7 @@ const App = (props) => {
             <TaskList
               title={list.title}
               cards={list.cards}
+              listID={list.id}
               key={list.id}
             />
           ))
