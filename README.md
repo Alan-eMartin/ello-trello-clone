@@ -12,17 +12,16 @@
 
 ### Description
 
-A Trello clone and task management app built to practice React-Redux and learn React Drag and Drop. 
+A Trello clone and task management app built to practice React-Redux and learn beautiful DnD, and the MERN stack. User will be able to login and create and save lists/ reorder items and order of lists via drag and drop.
 
 ### MVP
 
 - Use Redux for state-management
 - Allow user to use drag and drop to move cards and lists
-- User can create/delete existing lists and cards
 - Use only React functional components and React Hooks
 - integrate auth
 - integrate back-end with Nodejs, Express, Mongoose and mongoDB
-- Allow users to create new lists/cards, and delete  lists/cards.
+- Allow users to create new lists/cards, and delete  lists/cards via POST, DELETE, PATCH etc.
 
 
 ### Stretch Goals
