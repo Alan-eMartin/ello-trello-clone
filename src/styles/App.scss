@@ -353,10 +353,14 @@ img {
 
 body {
   background-color: #026ba7c0;
-  height: 100vh;
   width: 100%;
 }
 
 textarea {
   resize: none;
+}
+
+.lists-container {
+  display: flex;
+  height: 100%;
 }

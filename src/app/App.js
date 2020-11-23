@@ -1,5 +1,5 @@
 import React  from 'react';
-import { DragDropContext, dragDropContext } from 'react-beautiful-dnd';
+import { DragDropContext } from 'react-beautiful-dnd';
 import { sort } from '../actions'
 import '../styles/App.scss';
 // Components
