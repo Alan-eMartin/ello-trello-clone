@@ -1,9 +1,7 @@
-import { v4 as uuidv4 } from 'uuid';
 import { CONSTANTS } from '../actions';
 
 let listID = 4
 let cardID = 6
-
 
 const initState = [
   {

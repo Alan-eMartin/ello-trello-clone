@@ -1,5 +1,5 @@
 import React from 'react';
-import { Draggable } from 'react-beautiful-dnd';
+import { Draggable, Droppable } from 'react-beautiful-dnd';
 import './style.scss';
 
 const TaskCard = (props) => {
@@ -8,10 +8,10 @@ const TaskCard = (props) => {
   const { text, id, index } = props;
   
   return (
-   <Draggable 
-    draggableId={String(id)} 
-    index={index}
-  >
+    <Draggable 
+      draggableId={String(id)} 
+      index={index}
+    >
     {
       provided => (
         <li
