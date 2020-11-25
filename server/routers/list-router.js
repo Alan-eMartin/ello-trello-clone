@@ -42,5 +42,65 @@ router.get('/lists', auth, async (req, res) => {
   }
 })
 
+// get list by id
+router.get('/lists/:id', auth, async (req, res) => {
+  const _id = req.params.id
+
+  try {
+    const list = await List.findOne({ _id, owner: req.user._id })
+
+    if (!list) {
+      res.status(404).send()
+    }
+    res.send(list)
+  } catch (err) {
+    res.status(500).send()
+  }
+})
+
+// Update Lists
+router.patch('/lists/:id', auth, async (req, res) => {
+  // check that the fields being changed are all, or one of the following
+  const updates = Object.keys(req.body)
+  const allowedUpdates = ["title", "position"]
+  const isValidOperation = updates.every(update => {
+    return allowedUpdates.includes(update)
+  })
+
+  if (!isValidOperation) {
+    return res.status(400).send({ error: 'The field you are trying to update are invalid' })
+  }
+
+  try {
+    const list = await List.findOne({ _id: req.params.id, owner: req.user._id })
+
+    if (!list) {
+      return res.status(404).send()
+    }
+    updates.forEach(update => list[update] = req.body[update])
+    await list.save()
+    res.send(list)
+  } catch (err) {
+    res.status(500).send(err)
+  }
+})
+
+// Delete List
+router.delete('/lists/:id', auth, async (req, res) => {
+  const _id = req.params.id
+
+  try {
+    const list = await List.findOneAndDelete({ _id, owner: req.user._id })
+
+    if (!list) {
+      res.status(404).send()
+    }
+    res.send(list)
+  } catch (err) {
+    res.status(500).send()
+  }
+})
+
+
 
 module.exports = router
