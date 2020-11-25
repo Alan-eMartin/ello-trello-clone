@@ -46,7 +46,11 @@ const userSchema = new mongoose.Schema({
 })
 
 // Middleware
-
+userSchema.virtual('lists', {
+  ref: 'List',
+  localField: '_id',
+  foreignField: 'owner',
+})
 
 userSchema.methods.toJSON = function () {
   const user = this

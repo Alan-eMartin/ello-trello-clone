@@ -18,7 +18,8 @@ const auth = async (req, res, next) => {
     req.user = user
     next()
   } catch (err) {
-    res.status(401).send({ error: 'please athenticate'})
+    console.log(typeof(process.env.JWT_TOKEN_SECRET))
+    res.status(401).send({ error: 'please authenticate'})
   }
 }
 
